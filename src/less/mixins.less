@@ -1,0 +1,570 @@
+// out: false, compress: false, sourceMap: false
+
+@import 'variables.less';
+
+/* CREADOR DE PROPIEDADES EN SERIE */
+/* Cómo funciona:
+    1. @atajo: es el nombre de la clase que se creará. Ejemplo: m-0.
+    2. @propiedad: es la propiedad CSS que corresponde. Ejemplo: margin.
+    3. @incremento: es el valor que se sumará en cada iteración. Ejemplo: 20px, 40px, ....
+    4. @rango: es el número de clases que se crearán. Ejemplo: 5 clases de f-0 a f-5.
+    5. @valor-inicial: es el número inicial con el que se inicia la secuencia. Ejemplo: 12px, 16px, ...
+    6. Esto resulta en variables que se pueden utilizar por medio de la puntuación. Ejemplo: .m-0, .m-1, .m-2, ...
+
+*/
+
+// Mixin recursivo para simular variables dinámicas
+.generar-clases(@atajo: undefined, @propiedad: font-size, @incremento: 20, @rango: 5, @valor-inicial: 0, @unidad: px) {
+  each(range(0, @rango), {
+    @value: @index;
+    .@{atajo}-@{value} {
+      @{propiedad}: unit(@valor-inicial + (@index * @incremento), @unidad);
+    }
+  });
+}
+
+// Mixin recursivo para generar clases
+.generar-espacios(@inicio, @incremento, @cantidad, @prefijo: p, @propiedad: padding, @direcciones: all, @index: 0) when (@index < @cantidad) {
+  // Calcular el valor actual
+  @valor: @inicio + (@index * @incremento);
+
+  // Generar clase general
+  .@{prefijo}-@{index} {
+      @{propiedad}: unit(@valor, px);
+  }
+
+  // Generar clases específicas para direcciones si se definen
+  .@{prefijo}t-@{index} when (@direcciones = all) {
+      @{propiedad}-top: unit(@valor, px);
+  }
+  .@{prefijo}t-@{index} when (@direcciones = top) {
+      @{propiedad}-top: unit(@valor, px);
+  }
+  .@{prefijo}r-@{index} when (@direcciones = all) {
+      @{propiedad}-right: unit(@valor, px);
+  }
+  .@{prefijo}r-@{index} when (@direcciones = right) {
+      @{propiedad}-right: unit(@valor, px);
+  }
+  .@{prefijo}b-@{index} when (@direcciones = all) {
+      @{propiedad}-bottom: unit(@valor, px);
+  }
+  .@{prefijo}b-@{index} when (@direcciones = bottom) {
+      @{propiedad}-bottom: unit(@valor, px);
+  }
+  .@{prefijo}l-@{index} when (@direcciones = all) {
+      @{propiedad}-left: unit(@valor, px);
+  }
+  .@{prefijo}l-@{index} when (@direcciones = left) {
+      @{propiedad}-left: unit(@valor, px);
+  }
+
+  // Llamada recursiva con el siguiente índice
+  .generar-espacios(@inicio, @incremento, @cantidad, @prefijo, @propiedad, @direcciones, (@index + 1));
+}
+
+/* CREADOR DE ELEMENTOS GENERALES */
+// Espaciado principal
+body {
+  .m-0;
+  
+  & section {
+    &.hs {
+      .m-1;
+      .mt-5;
+      .mb-2;
+    }
+  }
+
+  @media screen and (max-width: @mobile) {
+  }
+}
+
+// Colores
+/*
+Cómo funciona:
+  1. @colores: es un mapa que contiene los colores que se utilizarán en el proyecto.
+  2. @colores[nombre]: es el nombre del color establecido en el mapa.
+  3. @colores[valor]: es el valor del color establecido en el mapa.
+  4. .generar-colores(@colores: @colores) es el mixin que se encarga de generar las clases de los colores, tanto color como background-color.
+  5. .@{nombre} es la clase que se generará para el color.
+  6. color: @valor; es la propiedad CSS que se aplicará al color.
+  7. background-color: @valor; es la propiedad CSS que se aplicará al color de fondo.
+
+*/
+.generar-colores(@colores: @colores) {
+  each(@colores, {
+    @nombre: @key;
+    @valor: @value;
+    .@{nombre} {
+      color: @valor;
+    }
+    .bg-@{nombre} {
+      background-color: @valor;
+    }
+  });
+}
+body {
+  color: @colores[negro];
+  background-color: @colores[blanco];
+}
+
+// Grid
+.grid(@columns: 1fr, @rows: 1fr, @gap: 0) {
+  display: grid;
+  grid-template-columns: @columns;
+  grid-template-rows: @rows;
+  gap: @gap;
+}
+
+//  // Mixin para definir un grid con áreas
+  .grid-areas(@areas, @columns: 1fr, @rows: auto, @gap: 0) {
+    display: grid;
+    grid-template-columns: @columns;
+    grid-template-rows: @rows;
+    grid-template-areas: @areas;
+    gap: @gap;
+  }
+  /* Ejemplo de uso:
+      .contenedor {
+        .grid-areas(
+          "a a a"
+          "b b"
+          "c c c",
+          fit-content(100px) fit-content(100px) fit-content(100px), // Columnas
+          auto auto auto, // Filas
+          10px // Espacio entre elementos
+        );
+
+        .item-a {
+          grid-area: a;
+        }
+
+        .item-b {
+          grid-area: b;
+        }
+
+        .item-c {
+          grid-area: c;
+        }
+      }
+  */
+
+// Flex
+.flex(@direction: row, @justify: center, @align: center, @gap: 0) {
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @justify;
+  align-items: @align;
+  gap: @gap;
+}
+
+// // Mixin para definir un flex con dirección, justificación y alineación
+.f {
+    display: flex;
+    justify-content: center;
+}
+
+.f-cn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-bt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fc {
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-cn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fc-bt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Ejemplo de uso:
+    .contenedor {
+      .fc;
+    }
+
+    Ejemplo de uso 2:
+    También se puede utiliar en HTML directamente:
+    <div class="flex-center">
+      <div>Elemento 1</div>
+      <div>Elemento 2</div>
+    </div>
+*/
+
+
+
+// Navbar
+header {
+  & nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: @zi-5;
+
+    & .logo {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+// Slider
+.slider(@width: 100%, @height: 100%, @transition: @transition-duration) { 
+    position: relative;
+    .flex;
+    width: 100%;
+    height: 100%;
+    /* margin-left: 50vw; */
+    /* transform: translateX(-50%); */
+    transition: @transition;
+    overflow: auto; 
+    white-space: nowrap;
+  
+    /* & .slider-container {
+      .flex-column-center;
+      transition: @transition;
+    } */
+  
+    & .item {
+      .flex-between;
+      gap: @p-2;
+      width: @width;
+      height: @height;
+      transition: @transition;
+  
+      /* &:last-of-type {
+        padding-right: 50vw;
+      } */
+
+      & img {
+        width: @width;
+        max-width: initial;
+        height: @height;
+        object-position: center;
+        object-fit: cover;
+      }
+  
+      &-escalado {
+        transform: scale(0.5);
+        transition: @transition;
+  
+        &.active {
+          transform: scale(1);
+          transition: @transition;
+        }
+  
+      }
+      
+    }
+
+}
+
+.slider-arrows {
+  .fc;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: @zi-5;
+
+  & .arrow {
+    .fc;
+    width: 50px;
+    height: 50px;
+    background-color: @colores[gris];
+    cursor: pointer;
+    transition: @transition-duration;
+
+    &:hover {
+      background-color: @colores[gris];
+      transition: @transition-duration;
+    }
+
+    &.left {
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+
+    &.right {
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+    }
+  }
+}
+
+.slider-numbers {
+  .fc;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: @zi-5;
+
+  & .number {
+    .fc;
+    width: 20px;
+    height: 20px;
+    background-color: @colores[gris];
+    cursor: pointer;
+    transition: @transition-duration;
+
+    &:hover {
+      background-color: @colores[gris];
+      transition: @transition-duration;
+    }
+
+    &.active {
+      background-color: @colores[gris];
+      transition: @transition-duration;
+    }
+  }
+}
+
+/* .slider {
+  .slider(200px, 200px);
+} */
+
+// Tipografía
+* {
+  box-sizing: border-box;
+}
+html {
+  body {
+      font-family: @font-family;
+      line-height: @line-height;
+
+      & h1 {
+        .mt-0;
+        .f-5;
+        .light();
+        text-align: center;
+
+        & strong {
+          .bold();
+        }
+      }
+
+      & .titular {
+        .mt-0;
+        .f-5;
+      }
+
+      & h2 {
+        .mt-1;
+        .f-4;
+        .bold();
+        text-align: center;
+
+        & strong {
+          .secundario75;
+        }
+      }
+
+      & h3 {
+        .mt-0;
+        .f-4;
+        .light();
+      }
+
+      & h4 {
+        .mt-2;
+        .f-3;
+        .bold();
+      }
+
+      & .t-1 {
+        .m-0;
+        .f-2;
+        .bold();
+      }
+
+      & p {
+        .m-0;
+        margin-top: @s[1];
+        .mb-2;
+        .f-3;
+
+        &.pie {
+          .f-2;
+        }
+
+        &.nota {
+          .f-1;
+        }
+      }
+  }
+}
+
+
+// Imágenes
+img {
+  max-width: 100%;
+  height: auto;
+  object-position: center;
+  object-fit: cover;
+}
+
+.bg-img(@position: center, @size: cover) {
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    height: auto;
+    object-position: @position;
+    object-fit: @size;
+  }
+}
+
+.bg-img {
+  .bg-img();
+}
+
+.flotantes(@top: 0, @right: 0, @bottom: 0, @left: 0) {
+  position: relative;
+
+  & img {
+    position: absolute;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+  }
+}
+
+// Vídeos
+.bg-video(@position: center, @size: cover) {
+  position: relative;
+  overflow: hidden;
+
+  & video {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-position: @position;
+    object-fit: @size;
+
+    &::-webkit-media-controls {
+      display: none;
+    }
+
+    &::hover {
+      cursor: pointer;
+
+      &::after {
+        content: 'Reproducir';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: @colores[blanco];
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 2px @colores[negro];
+      }
+    }
+  }
+}
+
+
+  &.bg-video {
+    .bg-video();
+  }
+
+  
+
+// Cajas
+.caja {
+  border-radius: @border-radius;
+
+  &-img {
+    .p-1;
+    border-radius: @border-radius;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: auto;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+}
+
+// Bordes & divisores
+.border-radius() {
+  border-radius: @border-radius;
+}
+
+.divisor(@color: @colores[gris]) {
+  .mt-1;
+  .mb-1;
+  .p-0;
+  border-width: @border-stroke;
+  border-style: @border-style;
+  color: @color;
+}
+
+.divisor {
+  .divisor();
+}
+
+// Botones & enlaces
+.btn {
+  &-cta {
+    .p-2;
+    .pt-1;
+    .pb-1;
+    color: @colores[principal];
+    background-color: @colores[blanco];
+    .border-radius();
+
+    &:hover {
+      color: @colores[blanco];
+      background-color: @colores[negro];
+    }
+  }
+  &-info {
+    color: @colores[negro];
+    background-color: @colores[secundario];
+  }
+
+  &-link {
+    color: @colores[principal];
+
+    &-top {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: @colores[negro];
+    }
+  }
+}
+
+// Etiquetas
+.tag {
+  padding: @s[1] @s[0];
+  color: @colores[negro];
+  background-color: @colores[secundario25];
+  .border-radius();
+  text-align: center;
+}

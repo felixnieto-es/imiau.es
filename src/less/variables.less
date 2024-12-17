@@ -1,0 +1,119 @@
+// out: false, compress: false, sourceMap: false
+
+@import "mixins.less";
+
+// Colores
+/* @principal: #9E445F;
+@principal75: #E55C7C;
+@principal50: #EB7A97;
+@principal25: #FFD2EC;
+@secundario: #CCE071;
+@secundario75: #435900;
+@secundario50: #D5E97A;
+@secundario25: #E5F989;
+@terciario: none;
+@terciario25: none;
+@blanco: #fff;
+@negro: #152100;
+@gris: #F6F5F1; */
+
+// Array de mapa de colores
+@colores: {
+    principal: #9E445F;
+    principal75: #E55C7C;
+    principal50: #EB7A97;
+    principal25: #FFD2EC;
+    secundario: #CCE071;
+    secundario75: #435900;
+    secundario50: #D5E97A;
+    secundario25: #E5F989;
+    blanco: #fff;
+    negro: #152100;
+    gris: #F6F5F1;
+  };
+
+// Mixin recursivo para generar clases dinámicas de colores
+.generar-colores(@colores);
+
+// Tipografía
+@font-family: 'MuseoModerno', sans-serif;
+@bold: 900;
+@regular: 500;
+@light: 300;
+@line-height: 1.1;
+.bold() {
+    font-weight: @bold;
+}
+.regular() {
+    font-weight: @regular;
+}
+.light() {
+    font-weight: @light;
+}
+
+/*
+Llamada inicial para generar las clases de las "variables".generar-variables(@atajo: undefined, @propiedad: font-size, @incremento: 20px, @rango: 5, @valor-inicial: 0px, @unidad: px)
+*
+*
+*/
+.generar-clases(f, font-size, 6, 5, 6);
+@f-6: 120px;
+.f-6 {
+    font-size: @f-6;
+}
+// Espaciado
+@s: {
+    0: 5px;
+    1: 10px;
+    2: 15px;
+    3: 20px;
+    4: 25px;
+    5: 30px;
+};
+/*
+.generar-espacios(@inicio, @incremento, @cantidad, @prefijo: p, @propiedad: padding, @direcciones: all, @index: 0)
+Ejemplo solo padding top: .generar-espacios(0, 5, 5, p, padding, top);
+*
+*
+*/
+.generar-espacios(0, 20, 6, m, margin, all); // Genera 6 clases (m-0 a m-5) con incremento de 20px
+.generar-espacios(0, 20, 6, p, padding, all); // Genera 6 clases (p-0 a p-5) con incremento de 20px
+
+// Borders
+@border-radius: 15px;
+@border-stroke: 2px;
+@border-style: solid;
+
+// Z-index
+.generar-clases(zi, z-index, 1, 5, -3, ~"");
+@zi-5: 100;
+.zi-5 {
+    z-index: @zi-5;
+}
+
+// Breakpoints
+@desktop: 1024px;
+@table: 724px;
+@mobile: 574px;
+
+// Tamaños
+@width: 100%;
+@max-width: 1440px;
+@height: 100vh;
+@height50: 50vh;
+@max-height: 822px;
+
+// Cajas
+.full {
+    width: @width;
+    height: @height;
+}
+
+.half {
+    width: @width;
+    height: @height50;
+}
+
+// Animaciones
+@transition-duration: 0.3s;
+@transition-timing-function: ease-in-out;

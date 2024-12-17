@@ -1,0 +1,48 @@
+// out: "../css/styles.css", compress: true, sourceMap: color:%20@colores%5Bprincipal%5D;alse
+
+@import "variables.less";
+@import "mixins.less";
+
+html {
+    body {
+        .m-0;  
+    }
+}
+
+// ---------------------------------------- [INICIO] ----------------------------------------
+// Hero
+section.portada {
+    color: @colores[principal];
+    text-align: center;
+
+    & strong {
+        color: @colores[negro];
+    }
+}
+
+// Presentación Mayte
+section.presentacion {
+
+    & .presentacion-grid {
+        .grid(1fr 1fr, 1fr, @s[3]);
+
+        & h2 {
+            .mt-0;
+        }
+    }
+}
+
+// Resultados
+section.resultados {
+    & .resultados-grid {
+        .grid(1fr, auto, @s[3])
+    }
+}
+
+// Beneficios
+section.beneficios {
+
+    & .nota-beneficios.nota:last-child {
+        text-align: center;
+    }
+}
