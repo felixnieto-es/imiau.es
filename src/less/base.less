@@ -7,16 +7,97 @@ html {
     body {
         .m-0;  
     }
+
+    section {
+        .mt-5;
+
+        & .tag {
+            .f-1;
+            .mr-1;
+            .ml-1;
+        }
+    }
+
+    footer {
+
+        & .cta-caja {
+            .fc;
+            gap: @s[3];
+            .p-1;
+            .pt-4;
+            .pb-4;
+            .gris;
+            .bg-secundario75;
+            
+            & h2 {
+                .m-0;
+                .f-1;
+                text-transform: uppercase;
+            }
+
+            & .btn-cta {
+                width: 200px;
+                margin: 0 auto;
+            }
+
+        }
+
+        & .firma-caja {
+            .fc;
+            /* gap: @s[1]; */
+            .pt-4;
+            .pr-5;
+            .pb-5;
+            .pl-1;
+
+            & img {
+                width: 100px;
+                height: 100px;
+                .caja;
+            }
+
+            & .firma {
+                .fc;
+                .mt-2;
+                .f-0;
+                .bold;
+
+                & h3 {
+                    .principal;
+                    .f-1;
+                    .bold();
+                }
+
+                & p {
+                    .m-0;
+                    .p-0;
+                    .f-0;
+                    .light();
+                }
+
+                & .divisor {
+                    .mt-2;
+                    .mb-2;
+                    .principal50;
+                }
+
+                & a {
+                    .mb-1;
+                }
+            }
+        }
+        
+    }
 }
 
 // ---------------------------------------- [INICIO] ----------------------------------------
 // Hero
 section.portada {
-    color: @colores[principal];
+    .principal;
     text-align: center;
 
     & strong {
-        color: @colores[negro];
+        .negro;
     }
 }
 
@@ -44,5 +125,129 @@ section.beneficios {
 
     & .nota-beneficios.nota:last-child {
         text-align: center;
+    }
+}
+
+// Proceso
+section.proceso {
+    & .slider {
+        & .item {
+            & h3 {
+                .f-2;
+            }
+            & img {
+                .pr-2;
+                .pl-2;
+                width: 100vw;
+                height: 50vw;
+            }
+        }
+    }
+}
+
+// Tarifas
+section.tarifas {
+    & .tarifas-grid {
+        .grid(1fr, auto, @s[3]);
+        
+        & h3 {
+            .f-2;
+        }
+
+        & .divisor {
+            .secundario;
+        }
+
+        & .btn-cta {
+            .btn-cta(@colores[gris], @colores[secundario75]);
+        }
+    }
+}
+
+// Testimonios
+section.testimonios {
+    & .testimonios-grid {
+        .grid(1fr, auto, @s[3]);
+        .m-1;
+        .mt-4;
+
+        & .testimonios-item {
+            .grid(50px 1fr, 50px 1fr, @s[3]);
+            .p-1;
+            .caja;
+            .bg-gris;
+
+            & img {
+                width: 50px;
+                height: 50px;
+            }
+
+            & h3 {
+                .mb-0;
+                align-self: center;
+                .f-2;
+            }
+
+            & p {
+                grid-column: span 2;
+                .f-1;
+            }
+        }
+    }
+}
+
+// FAQ
+section.dudas {
+    .faq {
+        .fc;
+        gap: @s[3];
+        .m-1;
+        .mt-4;
+        
+        & .faq-item {
+            gap: @s[2];
+            .p-1;
+            .caja;
+            .bg-gris;
+      
+        .faq-question {
+            width: 100%;
+            align-self: center;
+            .mb-0;
+            .f-0;
+            .bold();
+            text-align: left;
+            text-transform: uppercase;
+        }
+    
+          .toggle {
+            .btn-cta(@colores[gris], @colores[negro]);
+            .p-1;
+          }
+      
+          .faq-answer {
+            display: none;
+          }
+        }
+      }
+}
+
+// Propuesta de valor
+section.valor {
+    .m-1;
+    .mb-5;
+    .p-2;
+    .pt-5;
+    .pb-3;
+    .caja;
+    .bg-principal25;
+
+    & p {
+        .f-0;
+        line-height: 1.2;
+
+        & strong {
+            .principal;
+        }
     }
 }
