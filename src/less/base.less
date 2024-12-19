@@ -11,11 +11,11 @@ html {
     section {
         .mt-5;
 
-        & .tag {
-            .f-1;
+        /* & .tag {
+            .f-0;
             .mr-1;
             .ml-1;
-        }
+        } */
     }
 
     footer {
@@ -93,6 +93,7 @@ html {
 // ---------------------------------------- [INICIO] ----------------------------------------
 // Hero
 section.portada {
+    .mt-0;
     .principal;
     text-align: center;
 
@@ -147,31 +148,62 @@ section.proceso {
 
 // Tarifas
 section.tarifas {
+    .mt-0;
+    .pt-3;
+    .pb-3;
+    .bg-secundario;
+
+    & .tag {
+        .blanco;
+        .bg-negro;
+    }
+
+    & h2 {
+        .mb-5;
+    }
+
     & .tarifas-grid {
         .grid(1fr, auto, @s[3]);
         
-        & h3 {
-            .f-2;
-        }
+        & .item {
+            & h3 {
+                .f-1;
+            }
 
-        & .divisor {
-            .secundario;
-        }
-
-        & .btn-cta {
-            .btn-cta(@colores[gris], @colores[secundario75]);
+            & p {
+                .f-0;;
+            }
+    
+            & .divisor {
+                .secundario;
+            }
+    
+            & .btn-cta {
+                .btn-cta(@colores[gris], @colores[secundario75]);
+            }
         }
     }
 }
 
 // Testimonios
 section.testimonios {
-    & .testimonios-grid {
+
+    & .tag {
+        .blanco;
+        .bg-principal50;
+    }
+
+    & h2 {
+        & strong {
+            .principal75;
+        }
+    }
+    & .grid {
         .grid(1fr, auto, @s[3]);
         .m-1;
         .mt-4;
 
-        & .testimonios-item {
+        & .item {
             .grid(50px 1fr, 50px 1fr, @s[3]);
             .p-1;
             .caja;
@@ -186,6 +218,10 @@ section.testimonios {
                 .mb-0;
                 align-self: center;
                 .f-2;
+                & strong {
+                    .principal75;
+                    .bold();
+                }
             }
 
             & p {
@@ -248,6 +284,430 @@ section.valor {
 
         & strong {
             .principal;
+        }
+    }
+}
+
+// ---------------------------------------- [SOBRE] ----------------------------------------
+// Hero
+section.portada.sobre {
+    .mt-0;
+    .negro;
+    text-align: left;
+
+    & h1 {
+        .blanco;
+        .bold();
+
+        & a {
+            .blanco;
+            text-decoration: none;
+            
+        }
+    }
+
+    & h2 {
+        text-align: left;
+        & strong {
+            .principal;
+        }
+    }
+}
+
+// ¿Por qué iMiau?
+section.imiau {
+    .mt-2;
+
+    & strong {
+        .principal;
+    }
+
+    & h2 {
+        .f-1;
+        text-transform: uppercase;
+    }
+
+    & .grid {
+        .grid(1fr 1fr, 1fr auto, @s[2]);
+        .mt-5;
+        .p-1;
+        overflow: hidden;
+
+        & .item {
+            .fc-bt;
+            .p-1;
+            .caja;
+
+            & h3 {
+                .f-0;
+                .bold();
+            }
+
+            & p {
+                .m-0;
+                .p-0;
+                .f-0;
+            }
+
+            &:last-child {
+                grid-column: span 2;
+                .f-bt;
+                flex-direction: row;
+                align-items: start;
+                gap: @s[1];
+                .gris;
+            }
+        }
+    }
+}
+
+// Propósito
+section.proposito {
+    & h2 {
+        .mt-0;
+        .mb-5;
+        .f-1;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    & p {
+        width: 60%;
+        .m-0;
+        .f-0;
+        text-align: left;
+        line-height: 1.2;
+    }
+}
+
+// Personalidad única
+section.personalidad {
+    .mb-5;
+
+    & h3 {
+        .mt-4;
+        .mb-0;
+        .f-2;
+        .principal;
+    }
+
+    & .slider {
+        gap: @s[2];
+        & .item {
+            /* width: 100%; */
+            min-width: 90vw;
+            /* .m-1; */
+            
+            .fc-bt;
+            /* .p-1; */
+
+            &:first-child {
+                .pl-1;
+            }
+
+            & h3 {
+                .mb-1;
+                .f-1;
+            }
+
+            & div.caja {
+                .fc-bt;
+                align-items: flex-start;
+                /* .mr-2;
+                .ml-2; */
+                .p-2;
+                /* width: 90vw; */
+                /* height: @height50; */
+                min-height: 350px;
+                border: @border-stroke @border-style @colores[principal25]; 
+
+                & img {
+                    .mb-1;
+                    width: 50px;
+                    height: 50px;
+                }
+
+                & p {
+                    .m-0;
+                    .p-0;
+                    .f-0;
+                }
+            }
+        }
+    }
+}
+
+// Destacado
+section.destacado {
+    .mt-0;
+    position: relative;
+    overflow: hidden;
+
+    & .caja {
+        & p {
+            .m-0;
+            .f-1;
+            .principal;
+        }
+
+    }
+
+    & .espacio {
+        width: 100vw;
+        height: 350px;
+    }
+
+    & img {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100vw;
+        height: 350px;
+        
+    }
+}
+
+// ---------------------------------------- [PRECIOS] ----------------------------------------
+// Hero
+section.portada.precios {
+    .fc-bt;
+    gap: @s[5];
+    width: 100%;
+    height: @height;
+    min-height: 600px;
+    max-height: 822px;
+    .m-0;
+
+    & h1 {
+        .principal;
+        .bold();
+    }
+
+    & .tag-box {
+        .tag-box();
+    }
+
+    & .nota {
+        width: 40vw;
+        .m-0;
+        .negro;
+        .bold();
+    }
+
+    & .down {
+        .f;
+        justify-items: center;
+        align-items: center;
+        .m-0;
+        .p-0;
+        width: 50px;
+        height: 50px;
+
+        & a {
+            .f-3;
+            .blanco;
+            transform: rotate(90deg);
+            text-decoration: none;
+        }
+
+        &:hover {
+            .bg-blanco;
+            /* border: @border-stroke @border-style @colores[negro]; */
+
+            & a {
+                .negro;
+            }
+        }
+    }
+}
+
+// Catsitting
+section.catsitting {
+    .fc;
+    gap: calc(@s[5] * 2);
+    .mt-0;
+    .p-1;
+    .pt-2;
+    .pb-4;
+
+    & .entrada {
+        & .tag {
+            .blanco;
+            .bg-negro;
+        }
+    
+        & h2 {
+            .principal75;
+            .f-1;
+            .light();
+            & strong {
+                .negro;
+                .f-3;
+                .regular();
+            }
+        }
+
+        & .nota {
+            width: 50%;    
+            margin: 0 auto;
+        }
+    }
+
+    & .las-palmas {
+        text-align: center;
+        & h3 {
+            .m-0;
+        }
+
+        & p {
+            .m-0;
+            .f-0;
+        }
+    }
+
+    & .ventajas {
+        .pr-1;
+        .pl-1;
+
+        & p {
+            .m-0;
+            .mb-1;
+            .principal75;
+            .f-0;
+            .bold();
+            text-transform: uppercase;
+        }
+
+        & ul {
+            .grid(1fr 1fr, auto auto auto, @s[1]);
+            .m-0;
+            .pl-1;
+
+            & li {
+                .m-0;
+                .mr-1;
+            }
+        }
+    }
+
+    & .grid {
+        .grid(1fr, auto, @s[3]);
+
+        & .item {
+            .p-2;
+            .caja;
+            .bg-gris;
+
+            & h3 {
+                .principal;
+                .f-2;
+                .bold();
+                text-transform: uppercase;
+            }
+
+            & div {
+                .m-0;
+                .f-bt;
+                align-items: flex-start;
+
+                & ul, & p {
+                    .m-0;
+                }
+            }
+
+            &:last-child {
+                .m-0;
+                .mt-2;
+                .p-0;
+                background-color: transparent;
+
+                & a {
+                    .btn-cta(@colores[gris], @colores[secundario75]);
+                }
+            }
+        }
+    }
+
+    & .nota.catsitting {
+        width: 16rem;
+        margin: 0 auto;
+    }
+
+}
+
+& .gato {
+    .m-1;
+    overflow: hidden;
+    box-sizing: border-box;
+    
+    & img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        object-position: center;
+        .caja;
+        .bg-principal25;
+        text-align: center;
+    }
+
+    &.pequeño {
+        .mt-3;
+        text-align: center;
+        & img {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+    }
+}
+
+// ---------------------------------------- [CONTACTO] ----------------------------------------
+// Hero
+section.portada.contacto {
+    .fc-bt;
+    gap: @s[5];
+    width: 100%;
+    height: @height;
+    min-height: 600px;
+    max-height: 822px;
+    .m-0;
+
+    & h1 {
+        .blanco;
+        .bold();
+    }
+
+    & p {
+        .mt-5;
+        .f-0;
+        .blanco;
+        .bold();
+        text-transform: uppercase;
+    }
+
+    & .down {
+        .f;
+        justify-items: center;
+        align-items: center;
+        .m-0;
+        .p-0;
+        width: 50px;
+        height: 50px;
+
+        & a {
+            .f-3;
+            .blanco;
+            transform: rotate(90deg);
+            text-decoration: none;
+        }
+
+        &:hover {
+            .bg-blanco;
+            /* border: @border-stroke @border-style @colores[negro]; */
+
+            & a {
+                .negro;
+            }
         }
     }
 }

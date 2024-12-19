@@ -362,17 +362,6 @@ header {
     .caja;
     .bg-gris;
 
-    /* & h3 {
-      .mb-0;
-      align-self: center;
-      .f-2;
-    } */
-
-    /* & p {
-      .m-0;
-      .f-1;
-    } */
-
     .faq-question {
 
     }
@@ -380,6 +369,29 @@ header {
     .faq-answer {
       display: none;
     }
+  }
+}
+
+// Caja de etiquetas/tag-box
+.tag-box(@tags: 1fr 1fr 1fr 1fr, @tag-gap: @s[1]) {
+  width: 100%;
+
+  & .grid {
+      .grid(@tags, 1fr, @tag-gap);
+      width: 100%;
+      margin-bottom: @tag-gap;
+      overflow: hidden;
+
+      & .item {
+          width: fit-content;
+          white-space: nowrap;
+          padding: @tag-gap;
+
+          & p {
+            .f-0;
+            .m-0;
+          }
+      }
   }
 }
 
@@ -391,6 +403,18 @@ html {
   body {
       font-family: @font-family;
       line-height: @line-height;
+
+      & .t {
+        &l {
+          text-align: left;
+        }
+        &c {
+          text-align: center;
+        }
+        &r {
+          text-align: right;
+        }
+      }
 
       & h1 {
         .mt-0;
@@ -419,6 +443,13 @@ html {
         }
       }
 
+      & .t-1 {
+        .m-0;
+        .f-1;
+        .bold();
+        line-height: 1;
+      }
+
       & h3 {
         .mt-0;
         .f-4;
@@ -431,10 +462,11 @@ html {
         .bold();
       }
 
-      & .t-1 {
+      & .t-2 {
         .m-0;
-        .f-3;
+        .f-1;
         .bold();
+        line-height: 1;
       }
 
       & p {
@@ -624,9 +656,13 @@ img {
 
 // Etiquetas
 .tag {
-  padding: @s[1] @s[0];
+  width: fit-content;
+  margin: 0 auto;
+  .mb-2;
+  padding: @s[1] @s[3];
   color: @colores[negro];
   background-color: @colores[secundario25];
   .border-radius();
+  .f-0;
   text-align: center;
 }
