@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="src/css/styles.css">
+    <script src="src/js/scripts.js"></script>
 </head>
 <body>
-    <header>
-
-    </header>
+    <header id="header"></header>
     
     <main>
         <section class="portada contacto fc-bt pt-2 pb-2 bg-principal75">
@@ -27,7 +26,7 @@
             </div>
         </section>
 
-        <section class="promesa m-2 p-2">
+        <section class="promesa caja m-1 mt-4 p-1 bg-blanco">
             <h2>
                 Muy personal, de <strong>tú</strong> a <strong>tú</strong>.
             </h2>
@@ -38,16 +37,16 @@
             </p>
         </section>
 
-        <section class="presentacion contacto"> <!-- presentacion -->
-            <div class="presentacion-grid grid caja bg-gris bg-img">
-                <img src="src/imagenes/mayte.jpg" alt="Mayte Ramos, educadora vincular y catsitter." class="presentacion-item item">
-                <div class="presentacion-item">
+        <section class="presentacion contacto mt-4"> <!-- presentacion -->
+            <div class="presentacion-grid grid caja m-1 p-1 bg-gris bg-img">
+                <img class="presentacion-item item" src="src/imagenes/mayte.jpg" alt="Mayte Ramos, educadora vincular y catsitter.">
+                <div class="presentacion-item item">
                         <div class="firma">
                             <h3>
                                 Mayte Ramos
                             </h3>
                             <p>
-                                Fundadora, consultora y catsitter en imiau.es
+                                Fundadora, consultora y catsitter en <strong>imiau.es</strong>
                             </p>
                             <div class="divisor"></div>
                             <a href="tel:+34625522673">
@@ -59,37 +58,34 @@
                             <a href="">
                                 @imiau.es
                             </a>
+                            <p class="nota">
+                                ”En este espacio no se juzga a nadie, sino que se analiza objetivamente para mejorar tu día a día y la de tus animales de compañía”.
+                            </p>
                         </div> <!-- firma -->
-                        <p class="nota">
-                            ”En este espacio no se juzga a nadie, sino que se analiza objetivamente para mejorar tu día a día y la de tus animales de compañía”.
-                        </p>
                 </div>
             </div>
         </section> <!-- presentacion -->
 
-        <section class="formulario">
-            <p>
+        <section class="formulario pt-1 pb-1 bg-principal75">
+            <p class="blanco tc">
                 Si lo prefieres, usa nuestro formulario y te contestaremos antes de <strong>24/48 horas</strong>.
             </p>
-            <div class="form caja fc-bt m-1 p-1 bg-principal25">
-                <form action="">
-                </form>
-            <form action="">
+            <form class="caja m-1 p-1 bg-principal25" action="">
                 <div>
                     <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="Mayte..." required>
                 </div>
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="info@imiau.es..." required>
                 </div>
                 <div>
                     <label for="phone">Teléfono:</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="phone" placeholder="(+34) 625 52 26 73..." required>
                 </div>
-                <div>
+                <div class="checkbox">
                     <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">He leído y acepto la política de privacidad</label>
+                    <label class="tl" for="privacy">He leído y acepto la política de privacidad</label>
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
@@ -193,8 +189,7 @@
         
     </main>
 
-    <footer>
-    </footer>
+    <footer id="footer"></footer>
     
 </body>
 </html>

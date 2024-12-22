@@ -213,15 +213,81 @@ body {
 // Navbar
 header {
   & nav {
+    .f-bt;
+    .pl-1;
+    .pr-1;
     position: fixed;
-    top: 0;
-    left: 0;
+    bottom: 0;
     right: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    .bg-blanco;
     z-index: @zi-5;
 
     & .logo {
       width: 60px;
       height: 60px;
+    }
+
+    & a {
+      .principal;
+      .bold();
+      text-transform: uppercase;
+      
+    }
+
+    & .menu {
+      .btn-cta(@colores[gris], @colores[principal]);
+      padding: @s[1] @s[2];
+      .zi-4;
+    }
+  }
+
+  & .nav-menu {
+    display: none;
+    z-index: @zi-5;
+
+    &.open {
+      .fc-bt;
+      .pt-5;
+      .pb-5;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      .bg-blanco;
+    }
+    
+    & a {
+      .btn-cta(@colores[principal], @colores[blanco]);
+      border: @border-stroke solid @colores[principal];
+
+      &:hover {
+        background-color: @colores[principal];
+        color: @colores[blanco];
+      }
+    }
+
+    & .nav-close {
+      position: absolute;
+      top: @s[2];
+      right: @s[2];
+      .btn-cta(@colores[gris], @colores[principal]);
+      .pr-1;
+      .pl-1;
+      z-index: @zi-5;
+
+      &:hover {
+        color: @colores[principal];
+        background-color: @colores[gris];
+      }
+
+      & p {
+        .m-0;
+      }
+
     }
   }
 }

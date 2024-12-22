@@ -241,12 +241,17 @@ section.dudas {
         .mt-4;
         
         & .faq-item {
+            .grid(1fr 50px, fit-content fit-content, @s[3]);
             gap: @s[2];
             .p-1;
             .caja;
             .bg-gris;
+
+        & .faq-item[aria-expanded="true"] .faq-answer {
+                display: block;
+            }
       
-        .faq-question {
+        & .faq-question {
             width: 100%;
             align-self: center;
             .mb-0;
@@ -256,13 +261,25 @@ section.dudas {
             text-transform: uppercase;
         }
     
-          .toggle {
+        & .toggle {
             .btn-cta(@colores[gris], @colores[negro]);
             .p-1;
           }
       
-          .faq-answer {
+        & .faq-answer {
             display: none;
+            height: 0;
+            transition: @transition-duration @transition-timing-function;
+
+            & p {
+                .f-0;
+            }
+
+            &.open {
+                grid-column: span 2;
+                display: block;
+                height: fit-content;
+            }
           }
         }
       }
@@ -707,6 +724,113 @@ section.portada.contacto {
 
             & a {
                 .negro;
+            }
+        }
+    }
+}
+
+// Promesa
+section.promesa {
+    border: @border-stroke @border-style @colores[principal25];
+
+    & h2 {
+        .mt-1;
+        .f-1;
+    }
+
+    & p {
+        .mb-1;
+        .f-0;
+    }
+}
+
+// Presentación
+section.presentacion.contacto {
+    & .grid {
+        & .item {
+            & .firma {
+                & h3 {
+                    .mb-0;
+                    .principal;
+                    .f-1;
+                    .bold();
+                }
+
+                & p {
+                    .mt-0;
+                    .f-0;
+                    .mb-0;
+                }
+
+                & .divisor {
+                    .principal50;
+                }
+
+                & a {
+                    display: inline-block;
+                    margin-bottom: @s[0];
+                }
+
+                & p.nota {
+                    .mt-1;
+                    .mb-0;
+                    .principal50;
+                }
+            }
+        }
+    }
+}
+
+section.formulario {
+    & p {
+        width: 60%;
+        margin: 0 auto;
+        .f-0;
+    }
+
+    & form {
+        .fc;
+        gap: (@s[4]*1.5);
+        .pt-2;
+        .pb-2;
+
+        & div {
+            .fc;
+            text-align: center;
+
+            & label {
+                .principal;
+                .f-0;
+            }
+
+            & input {
+                margin-top: (@s[1] / 2);
+                margin-bottom: @s[2];
+                padding: @s[1];
+                .caja;
+                border: none;
+                .f-1;
+                .principal;
+                .bg-gris;
+                text-align: center;
+            }
+
+            &.checkbox {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                & input[type="checkbox"] {
+                    margin: 0;
+                    margin-right: @s[1];
+                }
+            }
+
+            & button {
+                .btn-cta(@colores[secundario75], @colores[blanco]);
+                .mt-0;
+                .p-1;
+                border: none;
             }
         }
     }
