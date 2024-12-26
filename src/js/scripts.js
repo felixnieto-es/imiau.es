@@ -43,6 +43,85 @@ document.addEventListener('DOMContentLoaded', function() {
         subtree: true
     });
 
+    /* ---------------------- [MENÚ HAMBURGUESA] ---------------------- */
+    /* 
+    // Menú hamburguesa
+    function toggleMenu() {
+        const menuBtn = document.querySelector('.menu');
+        const menuPopup = document.querySelector('.menu-desplegable-ul');
+        let menuOpen = false;
+        menuBtn.addEventListener('click', () => {
+            if (!menuOpen) {
+                menuPopup.classList.remove('move-out');
+                menuPopup.classList.add('move-in');
+                menuOpen = true;
+            } else {
+                menuPopup.classList.remove('move-in');
+                menuPopup.classList.add('move-out');
+                menuOpen = false;
+            }
+        });
+    }
+     */
+
+    /* ---------------------- [SLIDER] ---------------------- */
+    // Slider de imágenes   
+    // Selecciona todos los sliders y sus números
+    const sliders = document.querySelectorAll('.slider');
+    const sliderNumbersGroups = document.querySelectorAll('.slider-numbers');
+
+    // Verifica si existen sliders en la página
+    if (sliders.length > 0 && sliderNumbersGroups.length > 0) {
+        sliders.forEach((slider, sliderIndex) => {
+            const sliderItems = slider.querySelectorAll('.item');
+            const sliderNumbers = sliderNumbersGroups[sliderIndex].querySelectorAll('.number');
+            let currentIndex = 0;
+
+            function updateSlider(index) {
+                const selectedItem = sliderItems[index];
+                selectedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                sliderNumbers.forEach((number, i) => {
+                    if (i === index) {
+                        number.classList.add('active');
+                    } else {
+                        number.classList.remove('active');
+                    }
+                });
+            }
+
+            function updateActiveNumber() {
+                sliderItems.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    const sliderRect = slider.getBoundingClientRect();
+                    if (rect.left >= sliderRect.left && rect.right <= sliderRect.right) {
+                        sliderNumbers.forEach((number, i) => {
+                            if (i === index) {
+                                number.classList.add('active');
+                            } else {
+                                number.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            sliderNumbers.forEach((number, index) => {
+                number.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider(index);
+                });
+            });
+
+            slider.addEventListener('scroll', () => {
+                updateActiveNumber();
+            });
+
+            // Inicializa el slider
+            /* updateSlider(currentIndex); */
+            updateActiveNumber(currentIndex);
+        });
+    }
+
     /* ---------------------- [FAQ] ---------------------- */
     // FAQ sistema de acordeón
     const faqItems = document.querySelectorAll('.faq-item');

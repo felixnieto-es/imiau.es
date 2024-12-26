@@ -73,6 +73,19 @@ body {
       .m-1;
       .mt-5;
       .mb-2;
+
+      @media screen and (max-width: @mobile) {
+        .mt-4;
+      }
+    }
+  }
+
+  & a {
+    .negro;
+    .bold();
+
+    &:hover {
+      .principal;
     }
   }
 
@@ -226,42 +239,53 @@ header {
     z-index: @zi-5;
 
     & .logo {
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
+      background-image: url('/src/imagenes/logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
 
     & a {
       .principal;
       .bold();
       text-transform: uppercase;
-      
     }
 
     & .menu {
-      .btn-cta(@colores[gris], @colores[principal]);
+      .btn-menu(@colores[gris], @colores[principal]);
       padding: @s[1] @s[2];
       .zi-4;
     }
   }
 
   & .nav-menu {
-    display: none;
-    z-index: @zi-5;
-
+    position: fixed;
+    bottom: -100vh;
+    left: 0;
+    width: 100%;
+    height: 0vh;
+    .fc-bt;
+    gap: @s[5];
+    .pt-5;
+    .pb-5;
+    .bg-blanco;
+    /* opacity: 0; */
+    transition: @transition-duration @transition-timing-function;
+    .zi-0;
+    overflow: hidden;
+    
     &.open {
-      .fc-bt;
-      .pt-5;
-      .pb-5;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
+      bottom: 0;
       height: 100vh;
-      .bg-blanco;
+      /* opacity: 1; */
+      transition: @transition-duration @transition-timing-function;
+      z-index: @zi-5;
     }
     
     & a {
-      .btn-cta(@colores[principal], @colores[blanco]);
+      .btn-menu(@colores[principal], @colores[blanco]);
       border: @border-stroke solid @colores[principal];
 
       &:hover {
@@ -270,11 +294,23 @@ header {
       }
     }
 
+    & .btn-cta {
+      .btn-cta(@colores[blanco], @colores[principal], "/src/imagenes/rrss-whatsapp-wt.svg");
+
+      &:hover {
+        background-color: @colores[blanco];
+        color: @colores[principal];
+      }
+    }
+
     & .nav-close {
       position: absolute;
-      top: @s[2];
-      right: @s[2];
-      .btn-cta(@colores[gris], @colores[principal]);
+      top: @s[3];
+      right: @s[3];
+      .btn-menu(@colores[gris], @colores[principal]);
+      width: 50px;
+      height: 50px;
+      align-items: center;
       .pr-1;
       .pl-1;
       z-index: @zi-5;
@@ -294,62 +330,42 @@ header {
 
 // Slider
 .slider(@width: 100%, @height: 100%, @transition: @transition-duration) { 
-    position: relative;
-    .f;
+  position: relative;
+  .f;
+  justify-content: flex-start;
+  gap: @s[5];
+  width: 100%;
+  height: 100%;
+  transition: @transition;
+  overflow: auto; 
+  scroll-snap-type: x mandatory; // Added scroll-snap-type for horizontal snapping
+  
+  & .item {
+    .fc-bt;
     justify-content: flex-start;
-    gap: @s[5];
-    width: 100%;
-    height: 100%;
-    /* margin-left: 25vw; */
-    /* transform: translateX(-25vw); */
+    width: @width;
+    height: @height;
     transition: @transition;
-    overflow: auto; 
-    /* white-space: nowrap; */
+    scroll-snap-align: center; // Added scroll-snap-align for centering items
   
-    /* & .slider-container {
-      .flex-column-center;
-      transition: @transition;
-    } */
-  
-    & .item {
-      .fc-bt;
-      justify-content: flex-start;
-      width: @width;
-      height: @height;
-      transition: @transition;
-      /* padding-left: 25vw; */
-      scroll-snap-align: center;
-      scroll-snap-type: y mandatory;
-  
-      /* &:last-of-type {
-        padding-right: 50vw; 
-      } */
-
-      /* &:first-of-type {
-        padding-left: 25vw;
-      } */
-
-      & img {
-        width: @width;
-        max-width: initial;
-        height: @height;
-        object-position: center;
-        object-fit: cover;
-      }
-  
-      &-escalado {
-        transform: scale(0.5);
-        transition: @transition;
-  
-        &.active {
-          transform: scale(1);
-          transition: @transition;
-        }
-  
-      }
-      
+    & img {
+    width: @width;
+    max-width: initial;
+    height: @height;
+    object-position: center;
+    object-fit: cover;
     }
-
+  
+    &-escalado {
+    transform: scale(0.5);
+    transition: @transition;
+  
+    &.active {
+      transform: scale(1);
+      transition: @transition;
+    }
+    }
+  }
 }
 
 .slider-arrows {
@@ -387,28 +403,31 @@ header {
 }
 
 .slider-numbers {
-  .fc;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: @zi-5;
+  .f;
+  gap: @s[1];
+  .pt-1;
 
   & .number {
-    .fc;
+    .f;
+    justify-content: center;
+    align-items: center;
     width: 20px;
     height: 20px;
-    background-color: @colores[gris];
+    .caja;
+    .p-1;
+    .principal;
+    .bg-gris;
     cursor: pointer;
     transition: @transition-duration;
 
     &:hover {
-      background-color: @colores[gris];
+      .bg-principal25;
       transition: @transition-duration;
     }
 
     &.active {
-      background-color: @colores[gris];
+      .gris;
+      .bg-principal;
       transition: @transition-duration;
     }
   }
@@ -432,6 +451,26 @@ header {
 
     }
 
+    & .toggle {
+      .btn-menu(@colores[gris], @colores[negro]);
+      width: (@s[4]*2);
+      height: (@s[4]*2);
+      justify-content: center;
+      align-items: center;
+      .p-0;
+      .f-5;
+      .light();
+      line-height: 0;
+
+      &:hover {
+          .bg-principal;
+      }
+
+      & img {
+        padding: @s[1];
+      }
+    }
+
     .faq-answer {
       display: none;
     }
@@ -441,12 +480,13 @@ header {
 // Caja de etiquetas/tag-box
 .tag-box(@tags: 1fr 1fr 1fr 1fr, @tag-gap: @s[1]) {
   width: 100%;
+  overflow: hidden;
 
   & .grid {
       .grid(@tags, 1fr, @tag-gap);
       width: 100%;
       margin-bottom: @tag-gap;
-      overflow: hidden;
+      /* overflow: hidden; */
 
       & .item {
           width: fit-content;
@@ -464,6 +504,7 @@ header {
 // Tipografía
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 html {
   body {
@@ -565,8 +606,8 @@ img {
   overflow: hidden;
 
   & img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     object-position: @position;
     object-fit: @size;
   }
@@ -640,8 +681,8 @@ img {
     overflow: hidden;
 
     & img {
-      width: 100%;
-      height: auto;
+      width: auto;
+      height: 100%;
       object-position: center;
       object-fit: cover;
     }
@@ -668,6 +709,8 @@ img {
 
 // Botones & enlaces
 .btn {
+  cursor: pointer;
+
   &-cta {
     .f;
     .p-2;
@@ -704,7 +747,7 @@ img {
   }
 }
 
-.btn-cta(@color: @colores[principal], @bg-color: @colores[blanco]) {
+.btn-cta(@color: @colores[principal], @bg-color: @colores[blanco], @icono: "/src/imagenes/rrss-whatsapp-wt.svg") {
   .p-2;
     .f;
     .pt-1;
@@ -718,6 +761,61 @@ img {
       color: @colores[blanco];
       background-color: @colores[negro];
     }
+
+    .icon-before(@icono);
+}
+
+.btn-menu(@color: @colores[blanco], @bg-color: @colores[principal]) {
+  .p-2;
+  .f;
+  .pt-1;
+  .pb-1;
+  color: @color;
+  background-color: @bg-color;
+  .border-radius();
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: @colores[blanco];
+    background-color: @colores[negro];
+    /* mix-blend-mode: difference; */
+  }
+}
+
+/* .rrss {
+  &-telefono {
+    display: flex;
+
+    &::before {
+      content: url('/src/imagenes/rrss-telefono.svg');
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      padding-right: @s[1];
+      .zi-2;
+    }
+  }
+} */
+
+.icon-before(@url: "/src/imagenes/rrss-telefono.svg") {
+  display: flex;
+
+  &::before {
+    content: url('@{url}');
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    padding-right: @s[1];
+    .zi-2;
+  }
+
+  &:hover {
+    &::before {
+      content: url('@{url}');
+      mix-blend-mode: difference;
+    }
+  }
 }
 
 // Etiquetas

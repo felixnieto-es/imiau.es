@@ -11,7 +11,7 @@
     <header id="header"></header>
     
     <main>
-        <section class="portada contacto fc-bt pt-2 pb-2 bg-principal75">
+        <section class="portada contacto fc-bt">
             <div class="entrada">
                 <h1>
                     Contacta con nosotros
@@ -20,10 +20,11 @@
                 <p class="">
                     Haz fácil lo imposible
                 </p>
+                <img src="src/imagenes/cat-14.png" alt="">
             </div>
-            <div class="down caja bg-negro">
-                <a href="">></a>
-            </div>
+            <a href="#presentacion" class="down caja bg-negro">
+                <img src="/src/imagenes/down.svg" alt="">
+            </a>
         </section>
 
         <section class="promesa caja m-1 mt-4 p-1 bg-blanco">
@@ -37,7 +38,7 @@
             </p>
         </section>
 
-        <section class="presentacion contacto mt-4"> <!-- presentacion -->
+        <section id="presentacion" class="presentacion contacto mt-4"> <!-- presentacion -->
             <div class="presentacion-grid grid caja m-1 p-1 bg-gris bg-img">
                 <img class="presentacion-item item" src="src/imagenes/mayte.jpg" alt="Mayte Ramos, educadora vincular y catsitter.">
                 <div class="presentacion-item item">
@@ -49,13 +50,13 @@
                                 Fundadora, consultora y catsitter en <strong>imiau.es</strong>
                             </p>
                             <div class="divisor"></div>
-                            <a href="tel:+34625522673">
+                            <a target="_blank" href="https://wa.me/34625522673"  class="rrss-telefono"> 
                                 (+34) 625 52 26 73
                             </a>
-                            <a href="mailto:info@imiau.es">
+                            <a target="_blank" class="rrss-email" href="mailto:info@imiau.es">
                                 info@imiau.es
                             </a>
-                            <a href="">
+                            <a target="_blank" class="rrss-instagram" href="https://www.instagram.com/imiau.es">
                                 @imiau.es
                             </a>
                             <p class="nota">
@@ -85,7 +86,9 @@
                 </div>
                 <div class="checkbox">
                     <input type="checkbox" id="privacy" name="privacy" required>
-                    <label class="tl" for="privacy">He leído y acepto la política de privacidad</label>
+                    <label class="tl" for="privacy">
+                        Acepto que mis datos sean tratados por imiau.es con el fin de responder a mi consulta y recibir información relacionada con sus servicios. <a href="">Política de privacidad</a>.
+                    </label>
                 </div>
                 <div>
                     <button type="submit">Enviar</button>
@@ -102,14 +105,14 @@
                 ¿<strong>DUDAS</strong>? ¡PREGÚNTAME!
             </h2>
     
-            <div class="gato pequeño">
-                <img src="" alt="">
+            <div class="gato pequeño contacto">
+                <img src="src/imagenes/cat-5.png" alt="">
             </div>
     
             <div class="faq">
                 <div class="faq-item">
                     <h3 class="faq-question">TU SERVICIO ES MUY CARO</h3>
-                    <div class="toggle">+</div>
+                    <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                     <div class="faq-answer">
                         <p>
                             Lo barato sale caro, porque al final
@@ -134,7 +137,7 @@
     
                 <div class="faq-item">
                     <h3 class="faq-question">NO SÉ SI VAN A CUIDAR BIEN DE MI GATO</h3>
-                    <div class="toggle">+</div>
+                    <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                     <div class="faq-answer">
                         <p>Puedes confiar en nosotros. Nuestro equipo está formado por profesionales con experiencia en el cuidado de gatos. Nos preocupamos por su bienestar y nos aseguramos de brindarles el mejor cuidado posible.</p>
                     </div>
@@ -142,7 +145,7 @@
     
                 <div class="faq-item">
                     <h3 class="faq-question">NO ENTIENDO EL SERVICIO QUE DAIS</h3>
-                    <div class="toggle">+</div>
+                    <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                     <div class="faq-answer">
                         <p>
                             La etología felina = gatología. Mi profesión consiste en ayudarte a entender tu gato y sus necesidades y mejorar su comportamiento y convivencia en el hogar.
@@ -153,7 +156,7 @@
     
                 <div class="faq-item">
                     <h3 class="faq-question">MI GATO ESTÁ LOCO, NO TIENE SOLUCIÓN</h3>
-                    <div class="toggle">+</div>
+                    <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                     <div class="faq-answer">
                         <p>
                             A menudo, los comportamientos exagerados de tu peludo pueden ocurrir por causas de estrés, ansiedad, miedos o causas veterinarias que puede tener origen en diversos factores como por ejemplo: que la casa no esté gatificada, que el arenero no esté en un lugar adecuado, que tenga algún tipo de dolor, etcétera.
@@ -164,7 +167,7 @@
     
                 <div class="faq-item">
                     <h3 class="faq-question">¿Cuanto tiempo necesitamos para solucionar mi problema?</h3>
-                    <div class="toggle">+</div>
+                    <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                     <div class="faq-answer">
                         <p>
                             No hay un tiempo fijo. Habitualmente los casos pueden ser de 4 a 6 meses, pero también hay otros casos que van a superar el año de terapia. Dependerá de la gravedad del caso y de los tiempo que irá marcando tu gato.
@@ -174,7 +177,7 @@
     
                 <div class="faq-item">
                     <h3 class="faq-question">¿Tú podrías recetar medicamentos?</h3>
-                    <div class="toggle">+</div>
+                    <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                     <div class="faq-answer">
                         <p>
                             No. Puedo recomendarte algunos medicamentos para tu caso, pero deberá recetártelo un veterinario, bajo su supervisión y responsabilidad.

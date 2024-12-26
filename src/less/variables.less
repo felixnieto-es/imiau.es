@@ -36,6 +36,11 @@
 .generar-colores(@colores);
 
 // Tipografía
+@font-face {
+    font-family: 'MuseoModerno';
+    src: url('../fonts/museomoderno.ttf') format('truetype');
+}
+
 @font-family: 'MuseoModerno', sans-serif;
 @bold: 900;
 @regular: 500;
@@ -93,7 +98,9 @@ Ejemplo solo padding top: .generar-espacios(0, 5, 5, p, padding, top);
 
 // Breakpoints
 @desktop: 1024px;
-@table: 724px;
+@desktop-max: 500px;
+@margin-auto: 0 auto;
+@tablet: 724px;
 @mobile: 574px;
 
 // Tamaños
@@ -101,7 +108,7 @@ Ejemplo solo padding top: .generar-espacios(0, 5, 5, p, padding, top);
 @max-width: 1440px;
 @height: 100vh;
 @height50: 50vh;
-@max-height: 822px;
+@max-height: 675px;
 
 // Cajas
 .full {

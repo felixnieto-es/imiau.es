@@ -11,7 +11,7 @@
     <header id="header"></header>
 
     <main>
-        <section class="portada fc-bt p-2 full bg-principal25"> <!-- portada -->
+        <section class="portada fc-bt full"> <!-- portada -->
             <div class="marca">
                 <img src="src/imagenes/marca.svg" alt="">
                 <p class="pie">
@@ -20,7 +20,7 @@
                     consideras un miembro más de la <strong>familia</strong>.
                 </p>
             </div>
-            <a class="btn-cta">(+34) 625 52 26 73</a>
+            <a target="_blank" href="https://wa.me/34625522673" class="btn-cta">(+34) 625 52 26 73</a>
         </section> <!-- portada -->
 
         <!-- ------------------------------------ -->
@@ -29,7 +29,7 @@
         <section class="presentacion p-1"> <!-- presentacion -->
             <div class="presentacion-grid grid caja p-1 bg-gris bg-img">
                 <img src="src/imagenes/mayte.jpg" alt="Mayte Ramos, educadora vincular y catsitter." class="presentacion-item item">
-                <div class="presentacion-item">
+                <div class="presentacion-item item">
                     <h2 class="">
                         ¡Hola!
                     </h2>
@@ -161,70 +161,93 @@
                 El secreto está en el proceso
             </p>
             <h2 class="t-1">
-                ¿CUÁL ES EL <strong>PROCEDIMIENTO</strong>?
+                ¿CUÁL ES EL <strong>PROCEDIMIENTO</strong>?
             </h2>
 
-            <div class="proceso-slider slider mt-4"> <!-- proceso-slider -->
+            <div class="proceso-slider slider mt-4 mb-0"> <!-- proceso-slider -->
 
-                <div class="proceso-item item p-2"> <!-- proceso-item -->
+                <div class="proceso-item item"> <!-- proceso-item -->
                     <h3 class="pie">
                         1. CONTACTO INICIAL:
                     </h3>
-                    <img src="" alt="">
+                    <div class="cat caja">
+                        <img src="../src/imagenes/cat-1.png" alt="">
+                    </div>
                     <p class="nota">
                         Te enviaré un formulario para conocernos mejor y saber el motivo de contacto.
                     </p>
                 </div> <!-- proceso-item -->
 
-                <div class="proceso-item item p-2"> <!-- proceso-item -->
+                <div class="proceso-item item"> <!-- proceso-item -->
                     <h3 class="nota">
                         2. PROPUESTA Y CONTRATACIÓN:
                     </h3>
-                    <img src="" alt="">
+                    <div class="cat caja">
+                        <img src="../src/imagenes/cat-7.png" alt="">
+                    </div>
                     <p class="nota">
                         Estimaremos las sesiones necesarias para tu caso, el contrato y pago del servicio en el momento de agendar la primera consultoría.
                     </p>
                 </div> <!-- proceso-item -->
 
-                <div class="proceso-item item p-2"> <!-- proceso-item -->
+                <div class="proceso-item item"> <!-- proceso-item -->
                     <h3 class="nota">
                         3. PRIMERA SESIÓN:
                     </h3>
-                    <img src="" alt="">
+                    <div class="cat caja">
+                        <img src="../src/imagenes/cat-6.png" alt="">
+                    </div>
                     <p class="nota">
                         Hablaremos más profundamente de tu caso, del historial clínico de tu gato para completar su anamnesis, comentaremos los videos adjuntos si es necesario y te daré las pautas de acción.
                     </p>
                 </div> <!-- proceso-item -->
 
-                <div class="proceso-item item p-2"> <!-- proceso-item -->
+                <div class="proceso-item item"> <!-- proceso-item -->
                     <h3 class="nota">
                         4. SEGUIMIENTO Y ADAPTACIÓN:
                     </h3>
-                    <img src="" alt="">
+                    <div class="cat caja">
+                        <img src="../src/imagenes/cat-11.png" alt="">
+                    </div>
                     <p class="nota">
                         Te proporcionaré unas pautas indicadas en intervalos de tiempo y cómo proceder frente a diferentes situaciones en un PDF que te enviaré en un periodo entre 24/48h y se agendará la próxima sesión de seguimiento.
                     </p>
                 </div> <!-- proceso-item -->
 
-                <div class="proceso-item item p-2"> <!-- proceso-item -->
+                <div class="proceso-item item"> <!-- proceso-item -->
                     <h3 class="nota">
                         5. SESIONES SUBSIGUIENTES:
                     </h3>
-                    <img src="" alt="">
+                    <div class="cat caja">
+                        <img src="../src/imagenes/cat-5.png" alt="">
+                    </div>
                     <p class="nota">
                         Se llevarán a cabo sesiones de seguimiento periódicas para evaluar el progreso, resolver dudas y modificar las pautas si es necesario. Se proporciona un resumen en PDF de cada sesión.
                     </p>
                 </div> <!-- proceso-item -->
 
-                <div class="proceso-item item p-2"> <!-- proceso-item -->
+                <div class="proceso-item item"> <!-- proceso-item -->
                     <h3 class="nota">
                         6. DURACIÓN DEL TRATAMIENTO:
                     </h3>
-                    <img src="" alt="">
+                    <div class="cat caja">
+                        <img src="../src/imagenes/cat-9.png" alt="">
+                    </div>
                     <p class="nota">
                         La duración variará dependiendo de la complejidad del caso y la respuesta del gato al tratamiento, pudiendo extenderse desde unas pocas semanas hasta varios meses.
                     </p>
                 </div> <!-- proceso-item -->
+
+            </div> <!-- proceso-slider -->
+
+            <div class="slider-numbers">
+                <div class="number">1</div>
+                <div class="number">2</div>
+                <div class="number">3</div>
+                <div class="number">4</div>
+                <div class="number">5</div>
+                <div class="number">6</div>
+            </div>
                 
         </section> <!-- proceso -->
 
@@ -247,10 +270,10 @@
                     </h3>
                     <ul>
                         <li>
-                            Bono individual 1 hora, ampliable a 1 hora y media.
+                            Bono individual <strong>1 hora, ampliable</strong> a 1 hora y media.
                         </li>
                         <li>
-                            Incluye PDF con la información y/o recomendación.
+                            <strong>Incluye PDF</strong> con la información y/o recomendación.
                         </li>
                     </ul>
                     <div class="divisor"></div>
@@ -258,47 +281,62 @@
                         Desde<br>
                         <strong>25€</strong> por sesión.
                     </p>
-                    <a href="" class="btn-cta gris bg-secundario75">Escríbeme ahora</a>
+                    <a target="_blank" href="https://wa.me/34625522673" class="btn-cta">Escríbeme ahora</a>
                 </div> <!-- tarifas-item -->
 
                 <div class="tarifas-item item caja p-1 bg-gris"> <!-- tarifas-item -->
                     <h3 class="t-1 secundario75">
-                        BONO INDIVIDUAL
+                        BONO 3 SESIONES
+                    </h3>
+                    <ul>
+                        <li>
+                            <strong>1 hora</strong> de consultoría.
+                        </li>
+                        <li>
+                            <strong>2 horas</strong> de consultoría y seguimiento.
+                        </li>
+                        <li>
+                            Seguimiento por <strong>WhatsApp</strong> o <strong>Instagram</strong> de tus dudas entre cada sesión.
+                        </li>
+                        <li>
+                            PDF con las <strong>pautas a seguir</strong>.
+                        </li>
+                    </ul>
+                    <div class="divisor"></div>
+                    <p>
+                        Desde<br>
+                        <strong>65€</strong> por sesión.
+                    </p>
+                    <a target="_blank" href="https://wa.me/34625522673" class="btn-cta">Escríbeme ahora</a>
+                </div> <!-- tarifas-item -->
+
+                <div class="tarifas-item item caja p-1 bg-gris"> <!-- tarifas-item -->
+                    <h3 class="t-1 secundario75">
+                        BONO 6 SESIONES
                     </h3>
                     <ul>
                         <li>
                             Bono individual 1 hora, ampliable a 1 hora y media.
                         </li>
                         <li>
-                            Incluye PDF con la información y/o recomendación.
+                            <strong>1 hora</strong> de consultoría.
+                        </li>
+                        <li>
+                            <strong>5 horas</strong> de consultoría y seguimiento.
+                        </li>
+                        <li>
+                            Seguimiento por <strong>WhatsApp</strong> o <strong>Instagram</strong> de tus dudas entre cada sesión.
+                        </li>
+                        <li>
+                            PDF con las <strong>pautas a seguir</strong>.
                         </li>
                     </ul>
                     <div class="divisor"></div>
                     <p>
                         Desde<br>
-                        <strong>25€</strong> por sesión.
+                        <strong>90€</strong> por sesión.
                     </p>
-                    <a href="" class="btn-cta">Escríbeme ahora</a>
-                </div> <!-- tarifas-item -->
-
-                <div class="tarifas-item item caja p-1 bg-gris"> <!-- tarifas-item -->
-                    <h3 class="t-1 secundario75">
-                        BONO INDIVIDUAL
-                    </h3>
-                    <ul>
-                        <li>
-                            Bono individual 1 hora, ampliable a 1 hora y media.
-                        </li>
-                        <li>
-                            Incluye PDF con la información y/o recomendación.
-                        </li>
-                    </ul>
-                    <div class="divisor"></div>
-                    <p>
-                        Desde<br>
-                        <strong>25€</strong> por sesión.
-                    </p>
-                    <a href="" class="btn-cta">Escríbeme ahora</a>
+                    <a target="_blank" href="https://wa.me/34625522673" class="btn-cta">Escríbeme ahora</a>
                 </div> <!-- tarifas-item -->
 
         </section> <!-- tarifas -->
@@ -361,14 +399,14 @@
             ¿<strong>DUDAS</strong>? ¡PREGÚNTAME!
         </h2>
 
-        <div class="gato">
-            <img src="" alt="">
+        <div class="gato pequeño">
+            <img src="../src/imagenes/cat-14.png" alt="">
         </div>
 
         <div class="faq">
             <div class="faq-item">
                 <h3 class="faq-question">TU SERVICIO ES MUY CARO</h3>
-                <div class="toggle">+</div>
+                <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                 <div class="faq-answer">
                     <p>
                         Lo barato sale caro, porque al final
@@ -393,7 +431,7 @@
 
             <div class="faq-item">
                 <h3 class="faq-question">NO SÉ SI VAN A CUIDAR BIEN DE MI GATO</h3>
-                <div class="toggle">+</div>
+                <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                 <div class="faq-answer">
                     <p>Puedes confiar en nosotros. Nuestro equipo está formado por profesionales con experiencia en el cuidado de gatos. Nos preocupamos por su bienestar y nos aseguramos de brindarles el mejor cuidado posible.</p>
                 </div>
@@ -401,7 +439,7 @@
 
             <div class="faq-item">
                 <h3 class="faq-question">NO ENTIENDO EL SERVICIO QUE DAIS</h3>
-                <div class="toggle">+</div>
+                <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                 <div class="faq-answer">
                     <p>
                         La etología felina = gatología. Mi profesión consiste en ayudarte a entender tu gato y sus necesidades y mejorar su comportamiento y convivencia en el hogar.
@@ -412,7 +450,7 @@
 
             <div class="faq-item">
                 <h3 class="faq-question">MI GATO ESTÁ LOCO, NO TIENE SOLUCIÓN</h3>
-                <div class="toggle">+</div>
+                <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                 <div class="faq-answer">
                     <p>
                         A menudo, los comportamientos exagerados de tu peludo pueden ocurrir por causas de estrés, ansiedad, miedos o causas veterinarias que puede tener origen en diversos factores como por ejemplo: que la casa no esté gatificada, que el arenero no esté en un lugar adecuado, que tenga algún tipo de dolor, etcétera.
@@ -423,7 +461,7 @@
 
             <div class="faq-item">
                 <h3 class="faq-question">¿Cuanto tiempo necesitamos para solucionar mi problema?</h3>
-                <div class="toggle">+</div>
+                <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                 <div class="faq-answer">
                     <p>
                         No hay un tiempo fijo. Habitualmente los casos pueden ser de 4 a 6 meses, pero también hay otros casos que van a superar el año de terapia. Dependerá de la gravedad del caso y de los tiempo que irá marcando tu gato.
@@ -433,7 +471,7 @@
 
             <div class="faq-item">
                 <h3 class="faq-question">¿Tú podrías recetar medicamentos?</h3>
-                <div class="toggle">+</div>
+                <div class="toggle"><img src="/src/imagenes/plus.svg" alt=""></div>
                 <div class="faq-answer">
                     <p>
                         No. Puedo recomendarte algunos medicamentos para tu caso, pero deberá recetártelo un veterinario, bajo su supervisión y responsabilidad.
