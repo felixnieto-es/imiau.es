@@ -145,7 +145,7 @@ html {
 section.portada {
     position: relative;
     .mt-0;
-    .p-2;
+    .p-1;
     .pt-2;
     .pb-2;
     .principal;
@@ -185,6 +185,7 @@ section.portada {
     & .btn-cta {
         cursor: pointer;
         .btn-cta(@colores[principal], @colores[blanco], "/src/imagenes/rrss-whatsapp.svg");
+        white-space: pre;
 
         &:hover {
             .bg-principal75;
@@ -227,6 +228,11 @@ section.portada {
             background-size: auto 60%;
             background-position: 5% 100%;
         }
+
+        @media screen and (max-width: @mobile) {
+            background-size: auto 60%;
+            background-position: 60% 100%;
+        }
     }
 
 }
@@ -238,6 +244,12 @@ section.presentacion {
         .grid(1fr 1fr, 1fr, @s[3]);
 
         & .item {
+
+            &.mayte {
+                height: auto;
+                width: 100%;
+                .caja;
+            }
 
             & h2 {
                 .principal;
@@ -460,8 +472,10 @@ section.proceso {
             }
 
             & h3 {
+                min-height: 50px;
                 .mb-1;
                 .f-1;
+
             }
 
             & p {
@@ -590,6 +604,7 @@ section.testimonios {
         .grid(1fr, auto, @s[3]);
         .m-1;
         .mt-4;
+        .pb-2;
 
         & .item {
             .grid(50px 1fr, 50px 1fr, @s[3]);
@@ -759,6 +774,7 @@ section.valor {
 // Hero
 section.portada.sobre {
     .mt-0;
+    .p-2;
     .negro;
     text-align: left;
     /* .trama-imiau; */
@@ -773,8 +789,8 @@ section.portada.sobre {
         position: absolute;
         top: -50%;
         left: -50%;
-        width: 200%;
-        height: 200%;
+        width: 250%;
+        height: 250%;
         background-image: url('/src/imagenes/trama-imiau-1.svg');
         background-size: 200px 60px;
         background-repeat: repeat;
@@ -785,18 +801,25 @@ section.portada.sobre {
         opacity: .6;
         .zi-0;
 
-        animation: trama-imiau 40s infinite;
+        animation: trama-imiau 20s infinite;
         @keyframes trama-imiau {
             0% {
-                transform: rotate(-30deg) translate(-20%, 0px);
+                transform: rotate(-30deg) translate(-0%, 0px);
             }
             50% {
-                transform: rotate(-30deg) translate(20%, 0px);
+                transform: rotate(-30deg) translate(10%, 0px);
             }
             100% {
-                transform: rotate(-30deg) translate(-20%, 0px);
+                transform: rotate(-30deg) translate(-0%, 0px);
             }
         }
+
+        @media screen and (min-width: @tablet) {
+            content: '';
+            width: 200%;
+            height: 400%;
+        }
+        
     }
 
     &::after {
@@ -1050,6 +1073,10 @@ section.destacado {
         height: 350px; */
         width: auto;
         height: 25rem;
+
+        @media screen and (max-width: @mobile) {
+            object-position: 0% 0%;
+        }
         
     }
 
@@ -1111,6 +1138,24 @@ section.portada.precios {
                 }
                 
             }
+
+            @media screen and (min-width: @tablet) {
+                animation: tag-animation 20s infinite;
+                @keyframes tag-animation {
+                    0% {
+                        transform: translate(-2%, 0);
+                    }
+                    50% {
+                        transform: translate(2%, 0);
+                    }
+                    100% {
+                        transform: translate(-2%, 0);
+                    }
+                    
+                    
+                }
+                
+            }
         }
 
         & .grid:nth-child(3) {
@@ -1126,6 +1171,24 @@ section.portada.precios {
                     transform: translate(-70%, 0);
                 }
                 
+                
+            }
+
+            @media screen and (min-width: @tablet) {
+                animation: tag-animation2 20s infinite;
+                @keyframes tag-animation2 {
+                    0% {
+                        transform: translate(2%, 0);
+                    }
+                    50% {
+                        transform: translate(-2%, 0);
+                    }
+                    100% {
+                        transform: translate(2%, 0);
+                    }
+                    
+                    
+                }
                 
             }
         }
@@ -1367,8 +1430,8 @@ section.portada.contacto {
     .fc-bt;
     gap: @s[5];
     width: 100%;
-    height: @height;
-    min-height: 600px;
+    /* height: @height; */
+    min-height: 650px;
     max-height: 822px;
     .m-0;
     .pt-2;
@@ -1497,7 +1560,13 @@ section.presentacion.contacto {
     .mt-1;
 
     & .grid {
+        & .item.mayte {
+            width: 100%;
+            height: auto;
+            .caja;
+        }
         & .item {
+            
             & .firma {
                 & h3 {
                     .mb-0;
@@ -1539,6 +1608,7 @@ section.presentacion.contacto {
                     .icon-before("/src/imagenes/rrss-instagram.svg");
                 }
             }
+            
         }
     }
 }
@@ -1587,6 +1657,10 @@ section.formulario {
                 &:focus-visible {
                     outline: @colores[principal] auto @border-stroke;
                 }
+
+                @media screen and (max-width: @mobile) {
+                    .f-0;
+                }
             }
 
             &.checkbox {
@@ -1600,6 +1674,11 @@ section.formulario {
                     margin: 0;
                     margin-right: @s[1];
                 }
+
+                @media screen and (max-width: @mobile) {
+                    width: 100%;
+                }
+
             }
 
             & button {

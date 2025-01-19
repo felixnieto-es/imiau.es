@@ -405,7 +405,14 @@ header {
 .slider-numbers {
   .f;
   gap: @s[1];
+  width: 100%;
   .pt-1;
+  
+  @media screen and (max-width: @mobile) {
+    justify-content: space-between;
+    padding-left: @s[1];
+    padding-right: @s[1];
+  }
 
   & .number {
     .f;
