@@ -412,6 +412,15 @@ header {
     justify-content: space-between;
     padding-left: @s[1];
     padding-right: @s[1];
+    width: 50%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    @media screen and (min-width: @tablet) {
+      width: 100%;
+      justify-content: center;
+  }
   }
 
   & .number {

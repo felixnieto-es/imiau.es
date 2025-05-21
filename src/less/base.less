@@ -444,7 +444,7 @@ section.proceso {
      */
 
      & .slider-numbers {
-        width: 80%;
+        width: 50%;
         margin: 0 auto;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -452,6 +452,11 @@ section.proceso {
         .mr-1;
         .pl-3;
         .pr-3; */
+
+        @media screen and (min-width: @tablet) {
+            width: 100%;
+            justify-content: center;
+        }
     }
 
     & .slider {
