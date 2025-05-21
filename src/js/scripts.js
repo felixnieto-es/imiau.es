@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const footer = document.getElementById('footer'); // Obtiene el elemento con ID 'footer'
   
     // Realiza una solicitud para obtener el contenido de 'header.html'
-    fetch('header.html')
+    fetch('../header.html')
       .then(response => response.text()) // Convierte la respuesta en texto
       .then(data => {
           header.innerHTML = data; // Inserta el contenido en el elemento 'header'
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .catch(error => console.error('Error loading header:', error)); // Maneja cualquier error
 
     // Realiza una solicitud para obtener el contenido de 'footer.html'
-    fetch('footer.html')
+    fetch('../footer.html')
       .then(response => response.text()) // Convierte la respuesta en texto
       .then(data => {
           footer.innerHTML = data; // Inserta el contenido en el elemento 'footer'
